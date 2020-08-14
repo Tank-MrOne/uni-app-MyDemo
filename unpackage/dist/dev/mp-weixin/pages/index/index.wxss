@@ -1,0 +1,59 @@
+.indexView .header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 10rpx;
+}
+.indexView .header .logo {
+  width: 140rpx;
+  height: 40rpx;
+  margin: 10rpx 30rpx;
+}
+.indexView .header .search {
+  position: relative;
+  height: 60rpx;
+  width: 420rpx;
+  background-color: #c0c0c0;
+  margin: 0 10rpx;
+  border-radius: 2rpx;
+}
+.indexView .header .search .headerInput {
+  font-size: 24rpx;
+  width: 370rpx;
+  margin-left: 50rpx;
+}
+.indexView .header .search .iconfont {
+  font-size: 30rpx;
+  position: absolute;
+  top: 25%;
+  left: 10rpx;
+}
+.indexView .header .userName {
+  width: 144rpx;
+  height: 60rpx;
+  font-size: 22rpx;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #bb2c08;
+}
+.indexView .navScroll {
+  white-space: nowrap;
+  height: 80rpx;
+}
+.indexView .navScroll .navItem {
+  display: inline-block;
+  line-height: 79rpx;
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  width: 120rpx;
+  text-align: center;
+}
+.indexView .navScroll .isActive {
+  border-bottom: solid 1rpx #bb2c08;
+}
+.test {
+  font-size: 0;
+}
+

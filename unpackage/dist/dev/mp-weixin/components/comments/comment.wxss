@@ -1,0 +1,65 @@
+.commentSwiper {
+  width: 100%;
+  height: 350rpx;
+}
+.commentSwiper .swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.commentSwiper image {
+  width: 100%;
+  height: 100%;
+}
+.policyDescList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.policyDescList .policyDescItem {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  text-align: center;
+}
+.policyDescList .policyDescItem image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+.policyDescList .policyDescItem text {
+  font-size: 20rpx;
+  vertical-align: middle;
+}
+.kingkonglist {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.kingkonglist .kingkongitem {
+  margin: 10rpx 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  width: 20%;
+  font-size: 24rpx;
+}
+.kingkonglist .kingkongitem image {
+  width: 110rpx;
+  height: 110rpx;
+}
+.kingkonglist .kingkongitem text {
+  line-height: 50rpx;
+}
+.test {
+  font-size: 0;
+}
+
