@@ -1,5 +1,6 @@
 <template>
 	<view class="recoment">
+		<!-- 轮播图 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000"  class="commentSwiper">
 			<swiper-item>
 				<view class="swiper-item">
@@ -17,17 +18,33 @@
 				</view>
 			</swiper-item>
 		</swiper>
+		<!-- 标签栏 -->
 		<view class="policyDescList">
 			<view class="policyDescItem" v-for="(item,index) in indexData.policyDescList" :key="index">
 				<image :src="item.icon" mode=""></image>
 				<text>{{item.desc}}</text>
 			</view>
 		</view>
+		<!-- 图片导航栏 -->
 		<view class="kingkonglist" v-if="indexData.kingKongModule">
 			<view class="kingkongitem" v-for="(item,index) in indexData.kingKongModule.kingKongList" :key="index">
 				<image :src="item.picUrl" mode=""></image>
 				<text>{{item.text}}</text>
 			</view>
+		</view>
+		<!-- 底部内容区 -->
+		<view class="categoryModule" v-for="(cateItem,index) in indexData.categoryModule" :key="index">
+			<image class="cateImage" :src="cateItem.titlePicUrl" mode=""></image>
+			<scroll-view scroll-x="true" class="categoryScroll">
+				<view class="categoryItem" v-for="item in cateItem.itemList" :key="item.id">
+					<image class="scrollIamge" :src="item.showPicUrl" mode=""></image>
+					<view>{{item.name}}</view>
+				</view>
+				
+				<view class="categoryItem more" >
+					查看更多
+				</view>
+			</scroll-view>
 		</view>
 	</view>
 </template>
@@ -83,6 +100,36 @@
 				height 110rpx
 			text
 				line-height 50rpx
+	.categoryModule
+		.cateImage
+			width 100%
+			height 370rpx
+		.categoryScroll
+			white-space nowrap
+			.categoryItem
+				display inline-block
+				width 200rpx
+				margin 10rpx
+				vertical-align top
+				.scrollIamge
+					width 200rpx
+					height 200rpx
+					background-color #ccc
+					border-radius 5rpx
+				view
+					font-size 24rpx
+					white-space pre-wrap
+					display -webkit-box
+					-webkit-box-orient vertical
+					overflow hidden
+					-webkit-line-clamp 2
+				&.more
+					background-color #ccc
+					border-radius 5rpx
+					text-align center
+					font-size 24rpx
+					line-height 200rpx
+
 .test
 	font-size 0
 </style>

@@ -10,16 +10,17 @@
 		</view>
 		<!-- 导航区域 -->
 		<scroll-view scroll-x="true" class="navScroll">
-			<!-- <view class="navItem" :class="{isActive:true}">推荐</view> -->
-			<view @click="changeNavId(index)" class="navItem" :class="{isActive: navId === index}" v-for="(item,index) in indexData.kingKongModule.kingKongList" :key="index">
+			<view class="navItem" @click="changeNavId(-1,0)" :class="{isActive: navId === -1}">推荐</view>
+			<view @click="changeNavId(index,item.L1Id)" class="navItem" :class="{isActive: navId === index}" v-for="(item,index) in indexData.kingKongModule.kingKongList" :key="index">
 				{{item.text}}
 			</view>
 
 		</scroll-view>
 		<!-- 内容区 -->
-		<scroll-view scroll-y="true" >
+		<scroll-view scroll-y="true" class="contentScroll">
 			<view>
-				<Comments />
+				<Comments v-if="id==0"/>
+				<CateList v-else :navId="id"></CateList>
 			</view>
 		</scroll-view>
 	</view>
@@ -27,11 +28,17 @@
 
 <script>
 	import Comments from '../../components/comments/comment.vue'
+	import CateList from '../../components/cateList/cateList.vue'
 	import {mapState} from 'vuex'
 	export default {
+		components:{
+			Comments,
+			CateList
+		},
 		data() {
 			return {
-				navId : 0
+				navId : -1,
+				id : 0 ,
 			}
 		},
 		computed:{
@@ -42,12 +49,10 @@
 		mounted() {
 			this.$store.dispatch('getIndexData')
 		}, 
-		components:{
-			Comments
-		},
 		methods: {
-			changeNavId(index){
+			changeNavId(index,id){
 				this.navId = index
+				this.id = id
 			}
 		}
 	}
@@ -99,6 +104,8 @@
 				text-align center
 			.isActive
 				border-bottom solid 1rpx #BB2C08
+		.contentScroll
+			height calc(100vh - 160rpx)
 .test
 	font-size 0
 </style>

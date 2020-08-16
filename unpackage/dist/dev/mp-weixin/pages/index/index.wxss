@@ -53,6 +53,9 @@
 .indexView .navScroll .isActive {
   border-bottom: solid 1rpx #bb2c08;
 }
+.indexView .contentScroll {
+  height: calc(100vh - 160rpx);
+}
 .test {
   font-size: 0;
 }

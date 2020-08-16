@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "comments": "/components/comments/comment"
+    "comments": "/components/comments/comment",
+    "cate-list": "/components/cateList/cateList"
   }
 }

@@ -59,6 +59,40 @@
 .kingkonglist .kingkongitem text {
   line-height: 50rpx;
 }
+.categoryModule .cateImage {
+  width: 100%;
+  height: 370rpx;
+}
+.categoryModule .categoryScroll {
+  white-space: nowrap;
+}
+.categoryModule .categoryScroll .categoryItem {
+  display: inline-block;
+  width: 200rpx;
+  margin: 10rpx;
+  vertical-align: top;
+}
+.categoryModule .categoryScroll .categoryItem .scrollIamge {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #ccc;
+  border-radius: 5rpx;
+}
+.categoryModule .categoryScroll .categoryItem view {
+  font-size: 24rpx;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.categoryModule .categoryScroll .categoryItem.more {
+  background-color: #ccc;
+  border-radius: 5rpx;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 200rpx;
+}
 .test {
   font-size: 0;
 }
