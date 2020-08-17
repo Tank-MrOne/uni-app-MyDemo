@@ -1,11 +1,11 @@
 <template>
 	<view class="detailContainer">
 		<view class="header">
-			<icon class="iconfont icon-shouye2"></icon>
+			<icon class="iconfont icon-zhuyeA"></icon>
 			<text>网易严选 </text>
 			<view class="shopCart" >
-				<icon class="iconfont icon-gouwuche2"></icon>
-				<text class="count" >5</text>
+				<icon class="iconfont icon-gouwuche"></icon>
+				<text class="count" >{{cartList.length}}</text>
 			</view>
 		</view>
 		
@@ -30,7 +30,7 @@
 		<view class="detailFooter">
 			<image class="service" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/detail-kefu-d10f0489d2.png?imageView&type=webp" mode=""></image>
 			<view class="btn buyNow">立即购买</view>
-			<view class="btn addShopCart">加入购物车</view>
+			<view class="btn addShopCart" @click="addCart">加入购物车</view>
 		</view>
 	</view>
 </template>
@@ -47,10 +47,17 @@
 			this.shopDetail = JSON.parse(option.listItem)
 		},
 		computed: {
-			
+			...mapState({
+				cartList : state => state.cartModule.cartList
+			})
 		},
 		methods: {
-			
+			...mapMutations({
+				changeCartListMutation:"changeCartListMutation"
+			}),
+			addCart(){
+				this.changeCartListMutation(this.shopDetail)
+			}
 		}
 	}
 </script>

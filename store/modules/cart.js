@@ -1,8 +1,8 @@
+import Vue from 'vue'
 const state = {
-	cartList: [
-		{
-			"count" : 3,
-			"selected" : false ,
+	cartList: [{
+			"count": 3,
+			"selected": false,
 			"promId": 0,
 			"showPoints": false,
 			"itemTagList": [{
@@ -76,8 +76,8 @@ const state = {
 			"itemSizeTableFlag": false
 		},
 		{
-			"count" : 5,
-			"selected" : true ,
+			"count": 5,
+			"selected": true,
 			"promId": 0,
 			"showPoints": false,
 			"itemTagList": [{
@@ -153,15 +153,59 @@ const state = {
 	]
 }
 const mutations = {
-
+	changeCartListMutation(state, cart) {
+		let cartL = state.cartList.find(item => item.id === cart.id)
+		if (cartL) {
+			cartL.count += 1
+		} else {
+			Vue.set(cart, "count", 1)
+			Vue.set(cart, "selected", true)
+			state.cartList.push(cart)
+		}
+	},
+	changeCartNumMutation(state, { flag, index }) {
+		if (flag) {
+			state.cartList[index].count += 1
+		} else {
+			if (state.cartList[index].count > 1) {
+				state.cartList[index].count -= 1
+			} else {
+				wx.showModal({
+					title: "确认",
+					content: "是否删除该商品",
+					success(res) {
+						if (res.confirm) {
+							state.cartList.splice(index,1)
+						}
+					}
+				})
+			}
+		}
+	},
+	changeSelectedMutation(state,index){
+		state.cartList[index].selected = !state.cartList[index].selected
+	},
+	changeAllSelectedMutation(state,flag){
+		state.cartList = state.cartList.map(item =>{ 
+			item.selected = flag
+			return item
+		})
+	}
 }
 
 const actions = {
 
 }
 
+const getters = {
+	isAllSelected(state){
+		return state.cartList.every(item=>item.selected)
+	}
+}
+
 export default {
 	state,
 	mutations,
-	actions
+	actions,
+	getters
 }

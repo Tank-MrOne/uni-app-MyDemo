@@ -108,6 +108,18 @@
 						console.log('获取失败')
 					}
 				})
+				wx.login({
+				  success (res) {
+				    if (res.code) {
+				      //发起网络请求
+				      wx.request({
+				        url: 'http://localhost:3001/getUserOpenId?code='+res.code,
+				      })
+				    } else {
+				      console.log('登录失败！' + res.errMsg)
+				    }
+				  }
+				})
 			}
 		},
 		methods: {
